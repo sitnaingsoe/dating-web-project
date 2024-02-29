@@ -1,6 +1,6 @@
 <?php 
   session_start();
-
+	include "header.php";
   if (!isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
@@ -26,8 +26,7 @@
 	 		            align-items-center
 	 		            flex-column">
 
-	 		<img src="img/logo.png" 
-	 		     class="w-25">
+	 		
 	 		<h3 class="display-4 fs-1 
 	 		           text-center">
 	 			       LOGIN</h3>   
@@ -71,7 +70,7 @@
 </html>
 <?php
   }else{
-  	header("Location: home.php");
+  	header("Location: index.php");
    	exit;
   }
  ?>

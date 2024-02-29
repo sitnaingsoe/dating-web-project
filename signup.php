@@ -1,9 +1,9 @@
 <?php 
   session_start();
-
+	include "header.php";
   if (!isset($_SESSION['username'])) {
 ?>
-
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
 <body class="d-flex
              justify-content-center
              align-items-center
-             vh-100">
+             vh-100 m-5">
 	 <div class="w-400 p-5 shadow rounded">
 	 	<form method="post" 
 	 	      action="app/http/signup.php"
@@ -28,8 +28,6 @@
 	 		            align-items-center
 	 		            flex-column">
 
-	 		<img src="img/logo.png" 
-	 		     class="w-25">
 	 		<h3 class="display-4 fs-1 
 	 		           text-center">
 	 			       Sign Up</h3>   
@@ -88,14 +86,14 @@
 		  <button type="submit" 
 		          class="btn btn-primary">
 		          Sign Up</button>
-		  <a href="index.php">Login</a>
+		  <a href="signin.php">Login</a>
 		</form>
 	 </div>
 </body>
 </html>
 <?php
   }else{
-  	header("Location: home.php");
+  	header("Location: signin.php");
    	exit;
   }
  ?>

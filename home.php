@@ -1,6 +1,6 @@
 <?php 
   session_start();
-
+	include "header.php";
   if (isset($_SESSION['username'])) {
   	# database connection file
   	include 'app/db.conn.php';
@@ -156,7 +156,7 @@
 </html>
 <?php
   }else{
-  	header("Location: signin.php");
+  	header("Location: intro.php");
    	exit;
   }
  ?>
