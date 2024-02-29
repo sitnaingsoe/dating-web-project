@@ -16,69 +16,18 @@
 
 
 ?>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-<style>
-div.gallery {
-  border: 1px solid #ccc;
-  margin: 10px;
-  height: 100%;
-  overflow: hidden;
-}
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body style="padding-top: 80px;">
 
-div.gallery:hover {
-  border: 1px solid #777;
-}
+<div class="w3-container" style="width: 80%;margin-left: 115px;">
+  <h1>Users List</h1>
+</div>
 
-div.gallery img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 25.99999%;
-  height: 350px;
-  margin-bottom: 20px;
-}
-
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 100%;
-  }
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.b-con{
-  padding: 110px;
-}
-</style>
-</head>
-<body >
-<div class="b-con">
+<div class="w3-row-padding w3-margin-top" style="margin-top:200px;">
 <?php
         $id = $_SESSION['user_id'];
 
@@ -89,22 +38,23 @@ div.desc {
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($results as $row) {
                 ?>
-                <div class="responsive">
-                    <div class="gallery">
-                      <h4></h4>
-                      <a target="_blank" href="p-d.php?id=<?php echo $row['user_id'];?> && user=<?=$conversation['username']?>">
-                        <img src="uploads/<?php echo $row['p_p']; ?>" alt="Cinque Terre" width="700" height="500">
-                      </a>
-                    </div>
+            <div class="w3-third" style="width:20%;margin-left: 100px;          margin-bottom:30px;overflow:hidden;height:400px;object-fit:cover">
+                <div class="w3-card">
+                <a target="_blank" href="details.php?id=<?php echo $row['user_id']; ?>">
+                <img src="uploads/<?php echo $row['p_p']; ?>" style="width:100% "></a>
+                <div class="w3-container">
+                    <h3><?php echo $row['name'];?></h3>
                 </div>
-                <?php
+                </div>
+            </div>
+            <?php
                 // Add more fields as neede
+                
             }
         } catch (PDOException $e) {
             die("Error: " . $e->getMessage());
         }
         ?>
-        
 </div>
 </body>
 </html>
@@ -114,4 +64,3 @@ div.desc {
    	exit;
   }
  ?>
- 
